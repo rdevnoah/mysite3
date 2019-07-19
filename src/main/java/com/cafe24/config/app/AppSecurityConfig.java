@@ -22,15 +22,15 @@ import com.cafe24.mysite.security.CustomUrlAuthenticationSuccessHandler;
 /*
 Security Filter Chain
 
-1. ChannelProcessingFilter
-2. SecurityContextPersistenceFilter		( auto-config default, V )
-3. ConcurrentSessionFilter
-4. LogoutFilter							( auto-config default, V )
-5. UsernamePasswordAuthenticationFilter	( auto-config default, V )
-6. DefaultLoginPageGeneratingFilter		( auto-config default )
-7. CasAuthenticationFilter
-8. BasicAuthenticationFilter				( auto-config default, V )
-9. RequestCacheAwareFilter					( auto-config default )
+1.  ChannelProcessingFilter
+2.  SecurityContextPersistenceFilter		( auto-config default, V )
+3.  ConcurrentSessionFilter
+4.  LogoutFilter							( auto-config default, V )
+5.  UsernamePasswordAuthenticationFilter	( auto-config default, V )
+6.  DefaultLoginPageGeneratingFilter		( auto-config default )
+7.  CasAuthenticationFilter
+8.  BasicAuthenticationFilter				( auto-config default, V )
+9.  RequestCacheAwareFilter					( auto-config default )
 10. SecurityContextHolderAwareRequestFilter	( auto-config default )
 11. JaasApiIntegrationFilter
 12. RememberMeAuthenticationFilter          (                      V)  
@@ -42,7 +42,7 @@ Security Filter Chain
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig 
+public class AppSecurityConfig 
 	extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
@@ -124,6 +124,7 @@ public class SecurityConfig
 		.logout()
 		.logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
 		.logoutSuccessUrl("/")
+		.deleteCookies("JSESSIONID")
 		.invalidateHttpSession(true);
 		
 		

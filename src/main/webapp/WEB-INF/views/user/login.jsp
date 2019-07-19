@@ -12,17 +12,17 @@
 <link href="${pageContext.servletContext.contextPath }/assets/css/user.css" rel="stylesheet" type="text/css">
 <script src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.9.0.js"></script>
 <script>
-var csrfParameter = $('meta[name="_csrf_parameter"]').attr('content');
+/* var csrfParameter = $('meta[name="_csrf_parameter"]').attr('content');
 var csrfHeader = $('meta[name="_csrf_header"]').attr('content');
-var csrfToken = $('meta[name="_csrf"]').attr('content');
-console.log(csrfParameter + " : " + csrfHeader + " : " + csrfToken);
+var csrfToken = $('meta[name="_csrf"]').attr('content'); */
+console.log(csrfParameter + " : " + csrfHeader + " : " + csrfToken); 
 
 $(function(){
-	$("#login-form").submit(function(e){
+	$("#login-form3").submit(function(e){
 		e.preventDefault();
 		
-		var params = "email=" + $("#email").val() + "&password=" + $("#password");
-		
+		var params = "email=" + $("#email").val() + "&password=" + $("#password").val();
+		console.log(params);
 		$.ajax({
 			url: "${pageContext.request.contextPath }/user/auth",
 			type: "post",

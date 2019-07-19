@@ -57,6 +57,8 @@ public class CustomUrlAuthenticationSuccessHandler extends SimpleUrlAuthenticati
     		return;
     	}
     	
+    	System.out.println(securityUser.getPassword());
+    	
     	MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
     	MediaType jsonMimeType = MediaType.APPLICATION_JSON;
 		
